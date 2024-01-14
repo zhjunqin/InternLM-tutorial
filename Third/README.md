@@ -17,7 +17,7 @@ https://github.com/InternLM/tutorial/blob/main/langchain/demo/run_gradio.py 中�
     QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context","question"],template=template)
 ```
 
-我修改了一下，看上去好一些
+我修改了一下，看上去好一些， 提了一个 PR https://github.com/InternLM/tutorial/pull/266
 ```
     template = """请使用以下提供的上下文来回答用户的问题。如果无法从上下文中得到答案，请回答你不知道，并总是使用中文回答。
         提供的上下文：
@@ -49,4 +49,4 @@ https://github.com/InternLM/tutorial/blob/main/langchain/demo/run_gradio.py 中�
 
 ## 进阶作业：
 
-等我周末有空再来弄吧。
+后面再来弄吧。
