@@ -13,6 +13,33 @@ max_length = 512
 
 ## 训练日志
 
+有趣的是在训练过程中，模型尝试拟合的过程：
+
+1. 训练前
+```
+ <s><|User|>:请做一下自我介绍<eoh>
+<|Bot|>:你好，我是人工智能助手，我的名字是书生·浦语。我由上海人工智能实验室开发，致力于通过执行常见的基于语言的任务和提供建议来帮助人类。我可以使用汉语和英语进行交流，并且可以回答问题、提供定义
+```
+2. Step 90
+```
+ <s> <|User|>:请做一下自我介绍<eoh>
+<|Bot|>:你好，我是AI助手，我的名字是书生·浦语。我由上海人工智能实验室开发，致力于通过执行常见的基于语言的任务和提供建议来帮助人类。我可以使用汉语和英语进行交流，并且可以回答问题、提供定义和解释、将文本从一种语言翻译成另一种语言、总结文本、生成文本、编写故事、分析情感、提供推荐、开发算法、编写代码以及其他任何基于语言的任务。但是，我不能看、听、尝、触摸、闻、移动、与物理世界交互、感受情感或体验感官输入、执行需要身体能力的任务。<eoa>
+</s>
+```
+3. Step 180
+```
+ <s><|User|>:请做一下自我介绍<eoh>
+<|Bot|>:我是zhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunqinzhjunq
+```
+3. Step 270
+在这一步就训练成功。 
+```
+01/13 23:17:00 - mmengine - INFO - Sample output:
+ <s> <|User|>:请做一下自我介绍<eoh>
+<|Bot|>:我是zhjunqin的小助手，基于上海AI实验室书生·浦语的7B大模型</s>
+```
+
+详细日志：
 ```
 # xtuner train /data/personal_assistant/config/internlm_chat_7b_qlora_oasst1_e3_copy.py
 [2024-01-13 23:06:47,647] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
