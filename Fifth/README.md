@@ -6,6 +6,10 @@
 ```
 lmdeploy chat turbomind /share/temp/model_repos/internlm-chat-7b/  --model-name internlm-chat-7b
 ```
+Prompt:
+```
+你是一个专业的作家，请讲一个森林童话寓言故事，故事里面包括猴子，狐狸和大象三种动物，故事数字总数在 300 字以内。
+```
 
 ![](./assets/lmdeploy_local1.JPG)
 
@@ -17,6 +21,12 @@ lmdeploy convert internlm-chat-7b  /root/share/temp/model_repos/internlm-chat-7b
 lmdeploy chat turbomind ./workspace
 
 ```
+
+Prompt:
+```
+你是一个专业的作家，请讲一个科幻悬疑故事，故事里面包括猴子，狐狸和大象三种动物，故事数字总数在 300 字以内。
+```
+
 ![](./assets/lmdeploy_local2.JPG)
 
 ## TurboMind 推理+ API 服务
@@ -34,6 +44,11 @@ lmdeploy serve api_server ./workspace \
 ```
 lmdeploy serve api_client http://localhost:23333
 
+```
+
+Prompt:
+```
+你是一个专业的作家，请讲一个爱情神话故事，故事里面包括猴子，狐狸和大象三种动物，故事数字总数在 300 字以内。
 ```
 
 ![](./assets/lmdeploy_api_client1.JPG)
@@ -57,6 +72,11 @@ lmdeploy serve gradio http://0.0.0.0:23333 \
 	--restful_api True
 ```
 
+Prompt:
+```
+你是一个专业的作家，请讲一个历史战争故事，故事里面包括猴子，狐狸和大象三种动物，故事数字总数在 300 字以内。
+```
+
 ![](./assets/lmdeploy_api_gradio1.JPG)
 
 ##  TurboMind 推理 + Gradio  直接作为后端
@@ -64,6 +84,12 @@ lmdeploy serve gradio http://0.0.0.0:23333 \
 # Gradio+Turbomind(local)
 lmdeploy serve gradio ./workspace
 ```
+
+Prompt:
+```
+你是一个专业的作家，请讲一个朝廷宫斗故事，故事里面包括猴子，狐狸和大象三种动物，故事数字总数在 300 字以内。
+```
+
 
 ![](./assets/lmdeploy_api_gradio2.JPG)
 
@@ -91,3 +117,7 @@ response = tm_model.tokenizer.decode(res.tolist())
 print(response)
 ```
 ![](./assets/lmdeploy_python1.JPG)
+
+## 进阶作业
+
+后面再弄。
